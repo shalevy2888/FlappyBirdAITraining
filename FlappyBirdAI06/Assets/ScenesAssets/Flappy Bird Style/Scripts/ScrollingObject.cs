@@ -1,0 +1,31 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ScrollingObject : MonoBehaviour 
+{
+	private Rigidbody2D rb2d;
+	public float scrollSpeed = 2; // *** AI - control the speed
+
+	// Use this for initialization
+	void Start () 
+	{
+		//Get and store a reference to the Rigidbody2D attached to this GameObject.
+		rb2d = GetComponent<Rigidbody2D>();
+
+		Reset();
+	}
+
+	public void Reset() {
+		//Start the object moving.
+		rb2d.velocity = new Vector2(-scrollSpeed,0);  //new Vector2 (BirdControl.instance.scrollSpeed, 0);
+	}
+
+	void Update()
+	{
+		// If the game is over, stop scrolling.
+		/*if (GameLogic.GetInstance().GameOver == true) {
+			rb2d.velocity = Vector2.zero;
+		}*/
+	}
+}
